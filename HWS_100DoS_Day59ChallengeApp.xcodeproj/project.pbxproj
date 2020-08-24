@@ -37,6 +37,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60323E9E24F418D0002BD54E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				605C771D24F0784800CDE17B /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		60323E9F24F418E8002BD54E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				605C772424F0784900CDE17B /* LaunchScreen.storyboard */,
+				605C771F24F0784800CDE17B /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		60323EA024F418F0002BD54E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		60323EA124F418FA002BD54E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				605C771924F0784800CDE17B /* AppDelegate.swift */,
+				605C771B24F0784800CDE17B /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		605C770D24F0784800CDE17B = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +89,11 @@
 		605C771824F0784800CDE17B /* HWS_100DoS_Day59ChallengeApp */ = {
 			isa = PBXGroup;
 			children = (
-				605C771924F0784800CDE17B /* AppDelegate.swift */,
-				605C771B24F0784800CDE17B /* SceneDelegate.swift */,
-				605C771D24F0784800CDE17B /* ViewController.swift */,
-				605C771F24F0784800CDE17B /* Main.storyboard */,
+				60323EA124F418FA002BD54E /* Delegates */,
+				60323EA024F418F0002BD54E /* Models */,
+				60323E9F24F418E8002BD54E /* Storyboards */,
+				60323E9E24F418D0002BD54E /* ViewControllers */,
 				605C772224F0784900CDE17B /* Assets.xcassets */,
-				605C772424F0784900CDE17B /* LaunchScreen.storyboard */,
 				605C772724F0784900CDE17B /* Info.plist */,
 			);
 			path = HWS_100DoS_Day59ChallengeApp;
