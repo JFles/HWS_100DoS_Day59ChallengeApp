@@ -9,6 +9,16 @@
 import Foundation
 
 struct Country: Codable {
+    struct Currency: Codable {
+        var code: String
+        var name: String
+        var symbol: String
+    }
+
+    struct Language: Codable {
+        var name: String
+    }
+
     var name: String
     var capital: String
     var population: Int

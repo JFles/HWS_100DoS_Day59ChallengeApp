@@ -16,8 +16,6 @@
 		60D7AC0324F436B800084A36 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D7AC0224F436B800084A36 /* DetailViewController.swift */; };
 		60D7AC0624F4478400084A36 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D7AC0524F4478400084A36 /* Countries.swift */; };
 		60D7AC0824F4479400084A36 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D7AC0724F4479400084A36 /* Country.swift */; };
-		60D7AC0A24F449B300084A36 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D7AC0924F449B300084A36 /* Currency.swift */; };
-		60D7AC0C24F44A2C00084A36 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D7AC0B24F44A2C00084A36 /* Language.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +31,6 @@
 		60D7AC0424F4467B00084A36 /* CountryFacts_Response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryFacts_Response.json; sourceTree = "<group>"; };
 		60D7AC0524F4478400084A36 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		60D7AC0724F4479400084A36 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		60D7AC0924F449B300084A36 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		60D7AC0B24F44A2C00084A36 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +68,6 @@
 				60D7AC0424F4467B00084A36 /* CountryFacts_Response.json */,
 				60D7AC0524F4478400084A36 /* Countries.swift */,
 				60D7AC0724F4479400084A36 /* Country.swift */,
-				60D7AC0924F449B300084A36 /* Currency.swift */,
-				60D7AC0B24F44A2C00084A36 /* Language.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,8 +186,6 @@
 				605C771C24F0784800CDE17B /* SceneDelegate.swift in Sources */,
 				60D7AC0624F4478400084A36 /* Countries.swift in Sources */,
 				60D7AC0824F4479400084A36 /* Country.swift in Sources */,
-				60D7AC0C24F44A2C00084A36 /* Language.swift in Sources */,
-				60D7AC0A24F449B300084A36 /* Currency.swift in Sources */,
 				60D7AC0324F436B800084A36 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
