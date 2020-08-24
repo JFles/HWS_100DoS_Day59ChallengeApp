@@ -1,5 +1,5 @@
 //
-//  Countries.swift
+//  Language.swift
 //  HWS_100DoS_Day59ChallengeApp
 //
 //  Created by Jeremy Fleshman on 8/24/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Countries: Codable {
-    var results: [Country]
+struct Language: Codable {
+    var name: String
 }

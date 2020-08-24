@@ -8,6 +8,14 @@
 
 import Foundation
 
-struct Country {
-    #warning("Implement")
+struct Country: Codable {
+    var name: String
+    var capital: String
+    var population: Int
+    var demonym: String // i.e. demonym of "Spain" = "Spaniard"
+    var area: Int
+    var timeZones: [String]
+    var currency: [Currency]
+    var languages: [Language]
+    var flagURL: String
 }
