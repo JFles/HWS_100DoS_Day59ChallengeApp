@@ -36,8 +36,8 @@ class HomeViewController: UITableViewController {
     fileprivate func loadCountries() {
         #warning("Wrap this in a dispatchqueue")
         /// https://restcountries.eu/
-        let urlString = "https://restcountries.eu/rest/v2/all"
-//        let urlString = "https://restcountries.eu/rest/v2/name/afghan"
+//        let urlString = "https://restcountries.eu/rest/v2/all"
+        let urlString = "https://restcountries.eu/rest/v2/name/afghan"
 
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
