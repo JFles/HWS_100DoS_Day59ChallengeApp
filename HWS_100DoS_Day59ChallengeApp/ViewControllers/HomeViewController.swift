@@ -11,15 +11,17 @@ import UIKit
 class HomeViewController: UITableViewController {
 
     // MARK: - Properties
-    var countries = ["Argentina", "United States", "South Korea", "Japan", "Columbia"]
+//    var countries = ["Argentina", "United States", "South Korea", "Japan", "Columbia"]
 
+    var countries = [Country]()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        #warning("refactor")
-        countries.sort()
+        loadCountries()
+
+//        countries.sort()
 
         configureNavigationBar()
     }
@@ -28,6 +30,34 @@ class HomeViewController: UITableViewController {
         title = "Country facts"
 
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
+    // MARK: - Networking
+    fileprivate func loadCountries() {
+        #warning("Wrap this in a dispatchqueue")
+        /// https://restcountries.eu/
+        let urlString = "https://restcountries.eu/rest/v2/all"
+//        let urlString = "https://restcountries.eu/rest/v2/name/afghan"
+
+        if let url = URL(string: urlString) {
+            if let data = try? Data(contentsOf: url) {
+                parse(json: data)
+            } else {
+                print("Failed to retrieve data")
+            }
+        }
+    }
+
+    fileprivate func parse(json: Data) {
+        #warning("Change this to handle optional keys")
+        let decoder = JSONDecoder()
+
+        if let jsonCountries = try? decoder.decode([Country].self, from: json) {
+            countries = jsonCountries
+            print(countries.first)
+        } else {
+            print("Failed to decode country data")
+        }
     }
 
 }
@@ -41,7 +71,7 @@ extension HomeViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Country", for: indexPath)
 
-        cell.textLabel?.text = countries[indexPath.row]
+        cell.textLabel?.text = countries[indexPath.row].name
 
         return cell
     }

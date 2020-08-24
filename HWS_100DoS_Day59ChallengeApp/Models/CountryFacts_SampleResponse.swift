@@ -1,3 +1,4 @@
+let countryJson = """
 [
     {
         "name": "Afghanistan",
@@ -89,3 +90,4 @@
         }
     }
 ]
+"""
