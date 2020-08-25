@@ -21,8 +21,6 @@ class HomeViewController: UITableViewController {
 
         loadCountries()
 
-//        countries.sort()
-
         configureNavigationBar()
     }
 
@@ -36,8 +34,8 @@ class HomeViewController: UITableViewController {
     fileprivate func loadCountries() {
         #warning("Wrap this in a dispatchqueue")
         /// https://restcountries.eu/
-//        let urlString = "https://restcountries.eu/rest/v2/all"
-        let urlString = "https://restcountries.eu/rest/v2/name/afghan"
+        let urlString = "https://restcountries.eu/rest/v2/all"
+//        let urlString = "https://restcountries.eu/rest/v2/name/afghan"
 
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
@@ -49,14 +47,14 @@ class HomeViewController: UITableViewController {
     }
 
     fileprivate func parse(json: Data) {
-        #warning("Change this to handle optional keys")
         let decoder = JSONDecoder()
 
-        if let jsonCountries = try? decoder.decode([Country].self, from: json) {
+        do {
+            let jsonCountries = try decoder.decode([Country].self, from: json)
             countries = jsonCountries
-            print(countries.first)
-        } else {
-            print("Failed to decode country data")
+            print(countries[35])
+        } catch {
+            print(error)
         }
     }
 
