@@ -45,7 +45,6 @@ class DetailViewController: UIViewController {
 
     fileprivate func loadImage() {
         guard let url = URL(string: country?.flagUrl ?? "") else { return }
-        print(url)
 
         let SVGCoder = SDImageSVGCoder.shared
         SDImageCodersManager.shared.addCoder(SVGCoder)
@@ -66,7 +65,6 @@ class DetailViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
 }
 
 // MARK: - TableView delegate methods

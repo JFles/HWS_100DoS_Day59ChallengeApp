@@ -32,14 +32,17 @@ class HomeViewController: UITableViewController {
 
     // MARK: - Networking
     fileprivate func loadCountries() {
-        #warning("Wrap this in a dispatchqueue")
-        let urlString = "https://restcountries.eu/rest/v2/all"
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            guard let strongSelf = self else { return }
 
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                parse(json: data)
-            } else {
-                print("Failed to retrieve data")
+            let urlString = "https://restcountries.eu/rest/v2/all"
+
+            if let url = URL(string: urlString) {
+                if let data = try? Data(contentsOf: url) {
+                    strongSelf.parse(json: data)
+                } else {
+                    print("Failed to retrieve data")
+                }
             }
         }
     }
@@ -50,6 +53,9 @@ class HomeViewController: UITableViewController {
         do {
             let jsonCountries = try decoder.decode([Country].self, from: json)
             countries = jsonCountries
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
         } catch {
             print(error)
         }
