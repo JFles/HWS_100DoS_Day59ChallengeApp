@@ -34,25 +34,32 @@ class DetailViewController: UIViewController {
     }
 
     fileprivate func configureNavigationBar() {
-        #warning("Consider disabling large titles for detail VC")
-
         navigationItem.largeTitleDisplayMode = .never
         title = country?.name
     }
 
     fileprivate func configureImageView() {
-        let scaledHeight = UIScreen.main.bounds.width * (2/3)
-        imageView.heightAnchor.constraint(equalToConstant: scaledHeight).isActive = true
+        imageView.contentMode = .scaleAspectFit
         loadImage()
     }
 
     fileprivate func loadImage() {
-        #warning("Test this fails correctly")
         guard let url = URL(string: country?.flagUrl ?? "") else { return }
+        print(url)
 
         let SVGCoder = SDImageSVGCoder.shared
         SDImageCodersManager.shared.addCoder(SVGCoder)
-        imageView.sd_setImage(with: url)
+        imageView.sd_setImage(with: url) { [weak self] _,_,_,_ in
+            guard let strongSelf = self else { return }
+
+            let imageHeight = strongSelf.imageView.image?.size.height ?? 0
+            let imageWidth = strongSelf.imageView.image?.size.width ?? 0
+            let screenWidth = UIScreen.main.bounds.width
+            let scaledHeight = screenWidth * (imageHeight / imageWidth)
+
+            strongSelf.imageView.heightAnchor.constraint(equalToConstant: scaledHeight).isActive = true
+        }
+
     }
 
     fileprivate func configureTableView() {

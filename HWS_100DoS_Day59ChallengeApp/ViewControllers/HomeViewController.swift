@@ -33,9 +33,7 @@ class HomeViewController: UITableViewController {
     // MARK: - Networking
     fileprivate func loadCountries() {
         #warning("Wrap this in a dispatchqueue")
-        /// https://restcountries.eu/
         let urlString = "https://restcountries.eu/rest/v2/all"
-//        let urlString = "https://restcountries.eu/rest/v2/name/afghan"
 
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
@@ -52,7 +50,6 @@ class HomeViewController: UITableViewController {
         do {
             let jsonCountries = try decoder.decode([Country].self, from: json)
             countries = jsonCountries
-            print(countries[35])
         } catch {
             print(error)
         }
