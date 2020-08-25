@@ -41,6 +41,8 @@ class DetailViewController: UIViewController {
     fileprivate func configureImageView() {
         imageView.contentMode = .scaleAspectFit
         loadImage()
+        imageView.layer.borderWidth = 0.25
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     fileprivate func loadImage() {
@@ -58,7 +60,6 @@ class DetailViewController: UIViewController {
 
             strongSelf.imageView.heightAnchor.constraint(equalToConstant: scaledHeight).isActive = true
         }
-
     }
 
     fileprivate func configureTableView() {
