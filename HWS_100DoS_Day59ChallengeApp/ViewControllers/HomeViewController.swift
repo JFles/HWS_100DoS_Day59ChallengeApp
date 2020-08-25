@@ -28,6 +28,17 @@ class HomeViewController: UITableViewController {
         title = "Country facts"
 
         navigationController?.navigationBar.prefersLargeTitles = true
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .done, target: self, action: #selector(showInfoAlert))
+    }
+
+    // MARK: - Alerts
+    @objc func showInfoAlert() {
+        let alert = UIAlertController(title: "Country info sourced from REST Countries API", message: "Find more info on their GitHub page!", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+        present(alert, animated: true)
     }
 
     // MARK: - Networking
