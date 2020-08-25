@@ -77,11 +77,9 @@ extension HomeViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        #warning("Implement")
+        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "CountryDetails") as? DetailViewController else { return }
 
-        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "CountryDetails") else { return }
-
-        // set data here
+        detailVC.country = countries[indexPath.row]
 
         navigationController?.pushViewController(detailVC, animated: true)
     }

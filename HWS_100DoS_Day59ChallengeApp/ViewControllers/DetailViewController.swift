@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import SDWebImageSVGCoder
 
 class DetailViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var tableView: UITableView!
+
+    var country: Country?
 
     var countryFacts = [
         "Capital city: ",
@@ -25,14 +28,31 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureNavigationBar()
         configureImageView()
-
         configureTableView()
     }
 
+    fileprivate func configureNavigationBar() {
+        #warning("Consider disabling large titles for detail VC")
+
+        navigationItem.largeTitleDisplayMode = .never
+        title = country?.name
+    }
+
     fileprivate func configureImageView() {
-        imageView.backgroundColor = .lightGray
-        imageView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2).isActive = true
+        let scaledHeight = UIScreen.main.bounds.width * (2/3)
+        imageView.heightAnchor.constraint(equalToConstant: scaledHeight).isActive = true
+        loadImage()
+    }
+
+    fileprivate func loadImage() {
+        #warning("Test this fails correctly")
+        guard let url = URL(string: country?.flagUrl ?? "") else { return }
+
+        let SVGCoder = SDImageSVGCoder.shared
+        SDImageCodersManager.shared.addCoder(SVGCoder)
+        imageView.sd_setImage(with: url)
     }
 
     fileprivate func configureTableView() {

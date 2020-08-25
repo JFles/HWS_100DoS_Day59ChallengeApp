@@ -54,13 +54,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQn-fT-Wke">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="298"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" placeholder="YES" id="Oai-yQ-Mbc"/>
+                                    <constraint firstAttribute="height" constant="298" placeholder="YES" id="4tS-JN-OOD"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gt8-Zr-83D">
-                                <rect key="frame" x="0.0" y="350" width="414" height="512"/>
+                                <rect key="frame" x="0.0" y="342" width="414" height="520"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Fact" id="E4l-2q-Nvw">
@@ -76,14 +76,18 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="gt8-Zr-83D" firstAttribute="top" secondItem="pQn-fT-Wke" secondAttribute="bottom" id="5UB-DD-QQX"/>
                             <constraint firstItem="gt8-Zr-83D" firstAttribute="trailing" secondItem="aVP-gX-I1k" secondAttribute="trailing" id="BaX-ZD-mKO"/>
                             <constraint firstItem="pQn-fT-Wke" firstAttribute="trailing" secondItem="aVP-gX-I1k" secondAttribute="trailing" id="EpF-9U-z57"/>
                             <constraint firstItem="gt8-Zr-83D" firstAttribute="leading" secondItem="aVP-gX-I1k" secondAttribute="leading" id="Fvs-NI-wJG"/>
                             <constraint firstItem="gt8-Zr-83D" firstAttribute="top" secondItem="pQn-fT-Wke" secondAttribute="bottom" id="QR9-QM-Kys"/>
                             <constraint firstItem="gt8-Zr-83D" firstAttribute="centerX" secondItem="dqh-f5-T3K" secondAttribute="centerX" id="VA5-T2-Qo1"/>
+                            <constraint firstItem="pQn-fT-Wke" firstAttribute="leading" secondItem="aVP-gX-I1k" secondAttribute="leading" id="ctA-lU-lOQ"/>
+                            <constraint firstItem="pQn-fT-Wke" firstAttribute="trailing" secondItem="aVP-gX-I1k" secondAttribute="trailing" id="e5y-lZ-wkv"/>
+                            <constraint firstItem="pQn-fT-Wke" firstAttribute="top" secondItem="aVP-gX-I1k" secondAttribute="top" id="iqH-uq-AAo"/>
                             <constraint firstItem="gt8-Zr-83D" firstAttribute="bottom" secondItem="aVP-gX-I1k" secondAttribute="bottom" id="vW1-zP-HOP"/>
                             <constraint firstItem="pQn-fT-Wke" firstAttribute="leading" secondItem="aVP-gX-I1k" secondAttribute="leading" id="yhH-3n-Gg1"/>
-                            <constraint firstItem="pQn-fT-Wke" firstAttribute="top" secondItem="dqh-f5-T3K" secondAttribute="top" id="yi6-mc-Cmk"/>
+                            <constraint firstItem="pQn-fT-Wke" firstAttribute="top" secondItem="aVP-gX-I1k" secondAttribute="top" id="yi6-mc-Cmk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aVP-gX-I1k"/>
                     </view>
