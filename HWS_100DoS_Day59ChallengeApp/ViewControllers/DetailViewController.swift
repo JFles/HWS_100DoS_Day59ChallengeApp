@@ -6,8 +6,8 @@
 //  Copyright © 2020 Jeremy Fleshman. All rights reserved.
 //
 
-import UIKit
 import SDWebImageSVGCoder
+import UIKit
 
 class DetailViewController: UIViewController {
     // MARK: - Properties
@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
 
     fileprivate func configureNavigationBar() {
         navigationItem.largeTitleDisplayMode = .never
-//        title = country?.name
+        //        title = country?.name
     }
 
     fileprivate func configureImageView() {
@@ -44,7 +44,7 @@ class DetailViewController: UIViewController {
 
         let SVGCoder = SDImageSVGCoder.shared
         SDImageCodersManager.shared.addCoder(SVGCoder)
-        imageView.sd_setImage(with: url) { [weak self] _,_,_,_ in
+        imageView.sd_setImage(with: url) { [weak self] _, _, _, _ in
             guard let strongSelf = self else { return }
 
             let imageHeight = strongSelf.imageView.image?.size.height ?? 0
@@ -52,7 +52,9 @@ class DetailViewController: UIViewController {
             let screenWidth = UIScreen.main.bounds.width
             let scaledHeight = screenWidth * (imageHeight / imageWidth)
 
-            strongSelf.imageView.heightAnchor.constraint(equalToConstant: scaledHeight).isActive = true
+            strongSelf.imageView.heightAnchor.constraint(
+                equalToConstant: scaledHeight
+            ).isActive = true
         }
     }
 
@@ -77,23 +79,37 @@ class DetailViewController: UIViewController {
                 fact = Fact(name: "Population", data: country.population as Int)
             case .demonym:
                 fact = Fact(name: "Demonym", data: country.demonym as String)
-            case .area:
-                fact = Fact(name: "Area", data: country.area as Double)
+            case .area: fact = Fact(name: "Area", data: country.area as Double)
             case .timezones:
                 #warning("Add a loop structure")
-                fact = Fact(name: "Timezone", data: country.timezones.first ?? "")
+                fact = Fact(
+                    name: "Timezone",
+                    data: country.timezones.first ?? ""
+                )
             case .currencyCode:
                 #warning("Add a loop structure")
-                fact = Fact(name: "Currency Code", data: country.currencies.first?.code ?? "")
+                fact = Fact(
+                    name: "Currency Code",
+                    data: country.currencies.first?.code ?? ""
+                )
             case .currencyName:
                 #warning("Add a loop structure")
-                fact = Fact(name: "Currency Name", data: country.currencies.first?.name ?? "")
+                fact = Fact(
+                    name: "Currency Name",
+                    data: country.currencies.first?.name ?? ""
+                )
             case .currencySymbol:
                 #warning("Add a loop structure")
-                fact = Fact(name: "Currency Symbol", data: country.currencies.first?.symbol ?? "")
+                fact = Fact(
+                    name: "Currency Symbol",
+                    data: country.currencies.first?.symbol ?? ""
+                )
             case .languageName:
                 #warning("Add a loop structure")
-                fact = Fact(name: "Language", data: country.languages.first?.name ?? "")
+                fact = Fact(
+                    name: "Language",
+                    data: country.languages.first?.name ?? ""
+                )
             }
 
             countryData.append(fact)
@@ -108,12 +124,17 @@ extension DetailViewController: UITableViewDelegate {
 
 // MARK: - TableView datasource methods
 extension DetailViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countryData.count
-    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
+        -> Int
+    { return countryData.count }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Fact", for: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+        -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "Fact",
+            for: indexPath
+        )
 
         let fact = countryData[indexPath.row]
 

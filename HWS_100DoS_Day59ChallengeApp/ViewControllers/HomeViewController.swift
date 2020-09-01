@@ -11,7 +11,6 @@ import UIKit
 class HomeViewController: UITableViewController {
 
     // MARK: - Properties
-//    var countries = ["Argentina", "United States", "South Korea", "Japan", "Columbia"]
 
     var countries = [Country]()
 
@@ -29,12 +28,21 @@ class HomeViewController: UITableViewController {
 
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .done, target: self, action: #selector(showInfoAlert))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "info.circle"),
+            style: .done,
+            target: self,
+            action: #selector(showInfoAlert)
+        )
     }
 
     // MARK: - Alerts
     @objc func showInfoAlert() {
-        let alert = UIAlertController(title: "Country info sourced from REST Countries API", message: "Find more info on their GitHub page!", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Country info sourced from REST Countries API",
+            message: "Find more info on their GitHub page!",
+            preferredStyle: .alert
+        )
 
         alert.addAction(UIAlertAction(title: "OK", style: .default))
 
@@ -67,33 +75,44 @@ class HomeViewController: UITableViewController {
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
             }
-        } catch {
-            print(error)
-        }
+        } catch { print(error) }
     }
 
 }
 
 // MARK: - Tableview methods
 extension HomeViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries.count
-    }
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int { return countries.count }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Country", for: indexPath)
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "Country",
+            for: indexPath
+        )
 
         cell.textLabel?.text = countries[indexPath.row].name
 
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "CountryDetails") as? DetailViewController else { return }
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        guard
+            let detailVC = storyboard?.instantiateViewController(
+                withIdentifier: "CountryDetails"
+            ) as? DetailViewController
+        else { return }
 
         detailVC.country = countries[indexPath.row]
 
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
-
